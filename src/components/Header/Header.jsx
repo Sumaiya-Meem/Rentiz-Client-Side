@@ -81,15 +81,17 @@ const Header = () => {
                         </>
                         :
                         <>
-                        <Link to="/register">
+                       <div className='flex items-center'>
+                       <Link to="/register">
                     <Button color="" className='mr-2' pill onClick={handleLogout}>
                         SignUp
                     </Button></Link>
                     <Link to="/login">
-                    <Button color="light" className='p-2 font-semibold' pill>
+                    <Button color="" className='p-2 font-semibold' pill>
                         Login
                     </Button>
                     </Link>
+                       </div>
                         </>
                     }
                     

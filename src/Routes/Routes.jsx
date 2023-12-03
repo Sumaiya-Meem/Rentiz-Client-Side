@@ -7,6 +7,7 @@ import Register from '../Pages/Register/Register';
 import Login from '../Pages/Login/Login';
 import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 import AllProperties from '../Pages/AllProperties/AllProperties';
+import PrivateRoute from './PrivateRoute';
   
   const router = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ import AllProperties from '../Pages/AllProperties/AllProperties';
         },
         {
           path: "/allProperties",
-          element: <AllProperties></AllProperties>,
+          element: <PrivateRoute><AllProperties></AllProperties></PrivateRoute>,
         },
         {
           path: "/register",

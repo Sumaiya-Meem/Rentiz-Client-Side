@@ -3,13 +3,13 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { FaGoogle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import loginAnimation from "../../../public/Animation - 1701619502457.json"
 import Lottie from 'lottie-react';
 
 const Login = () => {
 
-    const {signIn} =useContext(AuthContext)
+    const {signIn, signInWithGoogle} =useContext(AuthContext)
     const location =useLocation()
 
     const navigate =useNavigate()
@@ -49,6 +49,34 @@ const Login = () => {
         })
 
     }
+
+    const handleGoogle = () =>{
+      signInWithGoogle()
+      .then(res=>{
+        Swal.fire({
+          title: "Login Successfully",
+          showClass: {
+            popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `
+          },
+          hideClass: {
+            popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `
+          }
+        });
+        navigate(from,{replace:true})
+
+      })
+      .catch(error=>{
+        console.log(error)
+      })
+    }
     return (
         <div className='flex gap-4'>
             
@@ -76,7 +104,12 @@ const Login = () => {
         <p>Don't have an account? <Link to="/register">
         <span className='text-blue-500'>SignUp</span> here
         </Link></p>
-        <p><FaGoogle /></p>
+        <div className='flex justify-center'>
+        <Button outline pill className='hover:bg-slate-200' onClick={handleGoogle}>
+        <FcGoogle className='text-2xl text-blue-500 mr-4 ' />
+        <span>Continue With Google</span>
+      </Button>
+          </div>
       </form>
     </Card>
   </div>
