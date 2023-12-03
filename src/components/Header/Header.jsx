@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from "../../../public/icon.png"
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Header = () => {
 
-   
+    const {user,logOut}=useContext(AuthContext)
+
+    const handleLogout =()=>{
+        console.log("logout")
+        logOut()
+        .then(()=>{})
+        .catch(err=>console.log(err))
+    }
 
     const navItem = <>
 
@@ -33,14 +41,6 @@ const Header = () => {
         >
             Dashboard
         </NavLink>
-        <NavLink
-            to="/login"
-            className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-green-400" : "text-white"
-            }
-        >
-            Login
-        </NavLink>
 
 
 
@@ -56,7 +56,7 @@ const Header = () => {
                      
                     </div>
                 </Navbar.Brand>
-                {/* <div className="flex md:order-2">
+                <div className="flex md:order-2">
                     {
                         user ? <>
                         <Dropdown
@@ -95,7 +95,7 @@ const Header = () => {
                     
                     
                     <Navbar.Toggle />
-                </div> */}
+                </div>
                 <Navbar.Collapse>
                     {navItem}
                 </Navbar.Collapse>

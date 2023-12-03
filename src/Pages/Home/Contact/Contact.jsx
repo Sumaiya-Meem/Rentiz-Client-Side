@@ -88,7 +88,7 @@ const Contact = () => {
                 </div>
                 {/* image */}
                 <div className='flex-1 rounded-tl-[120px] items-center justify-center  hidden lg:block'>
-                    <img src={img} alt="" className=' rounded-tl-[120px] rounded-br-[120px] h-[400px] lg:h-full  ' />
+                    <img src={img} alt="" className=' rounded-tl-[120px] rounded-br-[120px] h-[400px] w-full mt-5 ' />
                 </div>
             </div>
         </div>

@@ -85,13 +85,13 @@ const Register = () => {
          { required: true,
           minLength:5, 
           maxLength: 20,
-          pattern: /(?=.*[A-Z])(?=.*[0-9])/
-        }) } 
-          type="password"  />
+          pattern: /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).{6,}$/,
+        })}
+        type="password" />
 
           {errors.password?.type === "pattern" && (
         <p className='text-red-600'>Password must have At least one uppercase character,Minimum six characters
-         At least one number</p>
+         and At least one special character</p>
         )}
 
         </div>
