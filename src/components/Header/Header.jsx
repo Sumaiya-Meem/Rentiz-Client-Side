@@ -48,7 +48,7 @@ const Header = () => {
     return (
         <div className=''>
 
-            <Navbar fluid rounded className=' w-full bg-opacity-80  bg-[#121b25] text-white max-w-screen-lg' >
+            <Navbar fluid rounded className=' w-full fixed z-10 bg-opacity-60  bg-[#121b25] text-white max-w-screen-lg' >
                 <Navbar.Brand href="https://flowbite-react.com">
                     <img src={logo} className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
                     <div className='flex flex-col'>
