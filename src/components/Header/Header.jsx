@@ -83,7 +83,7 @@ const Header = () => {
                         <>
                        <div className='flex items-center'>
                        <Link to="/register">
-                    <Button color="" className='mr-2' pill onClick={handleLogout}>
+                    <Button color="" className='mr-2' pill >
                         SignUp
                     </Button></Link>
                     <Link to="/login">
