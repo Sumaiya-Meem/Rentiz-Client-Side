@@ -13,6 +13,7 @@ import Profile from '../Dashboard/Profile/Profile';
 import Dashboard from '../Dashboard/Dashboard';
 import AddProperty from '../Dashboard/AddProperty/AddProperty';
 import AllUser from '../Dashboard/AllUser/AllUser';
+import AddedProperty from '../Dashboard/AddedProperty/AddedProperty';
   
   const router = createBrowserRouter([
     {
@@ -55,6 +56,12 @@ import AllUser from '../Dashboard/AllUser/AllUser';
           path: "allUser",
           element: <AllUser></AllUser>,
         },
+        // agent route
+        {
+          path:"addedProperty",
+          element:<AddedProperty></AddedProperty>
+
+        }
       ]
       }
   ]);
