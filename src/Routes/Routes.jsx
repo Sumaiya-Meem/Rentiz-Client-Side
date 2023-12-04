@@ -12,6 +12,7 @@ import PrivateRoute from './PrivateRoute';
 import Profile from '../Dashboard/Profile/Profile';
 import Dashboard from '../Dashboard/Dashboard';
 import AddProperty from '../Dashboard/AddProperty/AddProperty';
+import AllUser from '../Dashboard/AllUser/AllUser';
   
   const router = createBrowserRouter([
     {
@@ -48,6 +49,11 @@ import AddProperty from '../Dashboard/AddProperty/AddProperty';
         {
           path: "addProperty",
           element: <AddProperty></AddProperty>,
+        },
+        // admin route
+        {
+          path: "allUser",
+          element: <AllUser></AllUser>,
         },
       ]
       }
