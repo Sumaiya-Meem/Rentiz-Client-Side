@@ -69,7 +69,7 @@ const Dashboard = () => {
                                         <NavLink to="/dashboard/addProperty">Add Property</NavLink>
                                     </li>
                                     <li className="p-3 border-b-2 border-slate-400 rounded-lg">
-                                        <NavLink to="/dashboard/addedProperty">Added Property</NavLink>
+                                        <NavLink to="/dashboard/addedProperty">My Added Property</NavLink>
                                     </li>
                                     <li className="p-3 border-b-2 border-slate-400 rounded-lg">
                                         <NavLink to="/dashboard/soldProperty">Sold Property</NavLink>
