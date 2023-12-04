@@ -14,6 +14,7 @@ import Dashboard from '../Dashboard/Dashboard';
 import AddProperty from '../Dashboard/AddProperty/AddProperty';
 import AllUser from '../Dashboard/AllUser/AllUser';
 import AddedProperty from '../Dashboard/AddedProperty/AddedProperty';
+import AdminAllProperties from '../Dashboard/AdminAllProperties/AdminAllProperties';
   
   const router = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ import AddedProperty from '../Dashboard/AddedProperty/AddedProperty';
         {
           path: "allUser",
           element: <AllUser></AllUser>,
+        },
+        {
+          path: "properties",
+          element: <AdminAllProperties></AdminAllProperties>,
         },
         // agent route
         {

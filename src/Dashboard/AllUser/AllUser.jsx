@@ -14,7 +14,7 @@ const AllUser = () => {
         return <Loading></Loading>
     }
 
-    const handleDelete= (user)=>{
+    const handleDelete= (users)=>{
 
         Swal.fire({
             title: "Are you sure?",
@@ -73,7 +73,7 @@ const AllUser = () => {
       };
     return (
         <div className="">
-            <h1 className='text-2xl font-bold mt-4 pl-3 text-[#205081]'>Total Users :{user.length} </h1>
+            <h1 className='text-2xl font-bold mt-4 pl-3 text-[#205081]'>Total Users :{users.length} </h1>
 
             <div className="overflow-x-auto mt-10 ml-0 lg:ml-3">
                 <Table striped className="border">

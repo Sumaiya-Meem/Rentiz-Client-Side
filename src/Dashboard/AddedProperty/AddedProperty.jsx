@@ -1,17 +1,47 @@
-import { Avatar, Card } from 'flowbite-react';
+import { Avatar, Button, Card } from 'flowbite-react';
 import useProperty from '../../hooks/useProperty';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 import { FaLocationDot } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const AddedProperty = () => {
     const { user } = useContext(AuthContext);
 
-    const [allProperty, refetch] = useProperty()
+    const [allProperty, refetch] = useProperty();
+    const axiosSecure =useAxiosSecure();
 
     const userProperties = allProperty.filter(property => property.agentEmail === user.email);
+
+    const handleDelete= (id)=>{
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              axiosSecure.delete(`/properties/${id}`)
+              .then(res=>{
+                 refetch();
+                 Swal.fire({
+                    title: "Deleted!",
+                    text: "Delete successfully.",
+                    icon: "success"
+                  });
+                
+              })
+             
+            }
+          });
+    }
     return (
         <div>
             <h1 className='text-2xl font-bold mt-4 pl-3 text-[#205081]'>Total Added Property : {userProperties.length}</h1>
@@ -25,8 +55,13 @@ const AddedProperty = () => {
                         >
                            <div className='relative'>
                            <div className='flex gap-5 absolute top-0 right-0'>
-                           < FaRegEdit  className='text-2xl  bg-slate-200'></FaRegEdit>
-                             < RxCross2   className='text-2xl bg-slate-200'></ RxCross2 >
+                          <Button color="">
+                          < FaRegEdit  className='text-2xl  bg-slate-200'></FaRegEdit>
+                          </Button>
+                           <Button color=""  onClick={()=>handleDelete(data._id)}>
+                           < RxCross2   className='text-2xl bg-slate-200'></ RxCross2 >
+                           </Button>
+                            
                            </div>
                              
                             <img src={data.image} className='h-[250px] rounded-lg w-full' alt="" />
