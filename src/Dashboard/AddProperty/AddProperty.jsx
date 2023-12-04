@@ -3,12 +3,15 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const AddProperty = () => {
     const { user } = useContext(AuthContext)
     const axiosSecure=useAxiosSecure()
+
+    const navigate=useNavigate()
 
     const handleAddProperty=(e)=>{
 

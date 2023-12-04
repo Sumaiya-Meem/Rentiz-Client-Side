@@ -30,6 +30,23 @@ const AdminAllProperties = () => {
             }
          })
     }
+    
+    const handleReject = (id) =>{
+        axiosSecure.put(`/properties/reject/${id}`, { status: 'rejected' })
+        .then(res=>{
+           console.log(res.data)
+           if(res.data.modifiedCount >0){
+               refetch();
+               Swal.fire({
+                   position: "top-center",
+                   icon: "success",
+                   title: "staus update successfully",
+                   showConfirmButton: false,
+                   timer: 1500
+                 });
+           }
+        })
+   }
 
     return (
         <div className="">

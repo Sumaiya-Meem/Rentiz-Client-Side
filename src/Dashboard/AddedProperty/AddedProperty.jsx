@@ -16,6 +16,8 @@ const AddedProperty = () => {
 
     const userProperties = allProperty.filter(property => property.agentEmail === user.email);
 
+    
+
     const handleDelete= (id)=>{
 
         Swal.fire({
@@ -30,12 +32,13 @@ const AddedProperty = () => {
             if (result.isConfirmed) {
               axiosSecure.delete(`/properties/${id}`)
               .then(res=>{
-                 refetch();
+                if(res.data.deletedCount > 0){
                  Swal.fire({
                     title: "Deleted!",
                     text: "Delete successfully.",
                     icon: "success"
                   });
+                }
                 
               })
              
