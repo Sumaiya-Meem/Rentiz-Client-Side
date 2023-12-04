@@ -7,8 +7,11 @@ import { AuthContext } from '../../Context/AuthProvider';
 import Swal from 'sweetalert2';
 import regiAnimation from "../../../public/Animation - 1701619162523.json"
 import Lottie from 'lottie-react';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Register = () => {
+
+  const axiosSecure = useAxiosSecure()
   const {register,handleSubmit,reset,formState: { errors }} = useForm()
 
   const {createUser,updateUserProfile,logOut } =useContext(AuthContext);
@@ -22,19 +25,31 @@ const Register = () => {
       console.log(loggedUser)
       updateUserProfile(data.name,data.image)
       .then(()=>{
-        console.log("user profile updated")
-        reset();
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Register Successfully",
-          showConfirmButton: false,
-          timer: 1500
-        });
-        logOut().then(() => {
-          console.log("User logged out")
-          navigate("/login");
-        });
+        console.log("user profile updated successfully")
+        // create user in database
+        const userInfo={
+          name:data.name,
+          email:data.email
+        }
+        axiosSecure.post('/users',userInfo)
+        .then(res=>{
+          if(res.data.insertedId){
+            console.log("user add in database")
+            reset();
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "Register Successfully",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            logOut().then(() => {
+              console.log("User logged out")
+              navigate("/login");
+            });
+          }
+        })
+        
       })
       .catch(err=>console.log(err))
 
