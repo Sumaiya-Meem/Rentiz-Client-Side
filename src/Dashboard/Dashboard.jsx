@@ -3,8 +3,8 @@ import { NavLink, Outlet } from "react-router-dom";
 const Dashboard = () => {
     const isAdmin = 'true';
     return (
-        <div className="flex">
-            <div className=" bg-[#3f86ae] h-screen w-64 text-white">
+        <div className="lg:flex">
+            <div className=" bg-[#3f86ae] h-screen  w-full lg:w-64 text-white">
                 <ul >
                     <li className="p-3 border-b-2 border-slate-400 rounded-lg">
                         <NavLink to="/">Home Page</NavLink>

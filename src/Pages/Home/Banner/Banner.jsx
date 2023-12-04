@@ -1,7 +1,9 @@
 import React from 'react';
 import bg from "../../../../public/bg3.webp"
 import CountUp from 'react-countup';
+import useUser from '../../../hooks/useUser';
 const Banner = () => {
+    const [user] =useUser();
     return (
         <div className='bg-[#121b25] flex flex-col md:flex-row gap-4 justify-between '>
             <div className="flex justify-center flex-col mt-[53px]">
@@ -16,7 +18,7 @@ const Banner = () => {
                     </div>
                     <div className=' text-white flex flex-col'>
                         <span>
-                            <CountUp start={0} end={100} duration={3}></CountUp>
+                            <CountUp start={0} end={user.length} duration={3}></CountUp>
                             <span className='text-[#da5a47]'>+</span>
                         </span>
                         <span>Happy Customers</span>
