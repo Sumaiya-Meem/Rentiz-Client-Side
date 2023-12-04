@@ -22,9 +22,10 @@ const AddProperty = () => {
         const agentName= form.agentName.value || "Not-Given"
         const agentEmail= form.agentEmail.value || "Not-Given"
         const status="pending"
+        const agentImage=user.photoURL || "Not-Given"
 
         const propertyInfo ={
-            name,location,image,price,agentName,agentEmail,status
+            name,location,image,price,agentName,agentEmail,status,agentImage
         }
         // console.log(propertyInfo)
         axiosSecure.post('/properties',propertyInfo)

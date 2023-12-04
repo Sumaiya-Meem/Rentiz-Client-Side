@@ -3,7 +3,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 import { IoIosLogOut } from "react-icons/io";
 import { FaRegEdit } from "react-icons/fa";
 import { Button, Card } from 'flowbite-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 const Profile = () => {
 
