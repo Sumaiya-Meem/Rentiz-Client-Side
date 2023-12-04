@@ -7,10 +7,12 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { FaLocationDot } from "react-icons/fa6";
 import useProperty from '../../../hooks/useProperty';
+import { Button } from 'flowbite-react';
 
 const Property = () => {
 
     const [allProperty]=useProperty();
+    const [search, setSearch] = useState('');
     const PropertyWithoutRejected = allProperty.filter((data) => data.status !== 'rejected')
 
     return (
@@ -40,7 +42,12 @@ const Property = () => {
                                 </div>
                             <p>Price: ${data.price}</p>
                             <p>Status: {data.status}</p>
+                          
                         </div>
+                        <div className="flex gap-10 items-center">
+                                <h3 className='capitalize font-semibold'>Status: {data.status}</h3>
+                                <Button>Details</Button>
+                            </div>
                     </SwiperSlide>
           
                     )
