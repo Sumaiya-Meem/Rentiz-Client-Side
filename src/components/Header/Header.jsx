@@ -3,7 +3,7 @@ import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from "../../../public/icon.png"
 import { AuthContext } from '../../Context/AuthProvider';
-
+import { IoIosLogOut } from "react-icons/io";
 const Header = () => {
 
     const {user,logOut}=useContext(AuthContext)
@@ -70,11 +70,13 @@ const Header = () => {
                             <span className="block text-sm">{ user?.displayName}</span>
                             <span className="block truncate text-sm font-medium">{user?.email}</span>
                         </Dropdown.Header>
-                        <Dropdown.Item>Settings</Dropdown.Item>
+                        <Dropdown.Item>
+                            <Link to="/dashboard">Dashboard</Link>
+                        </Dropdown.Item>
                         <Dropdown.Divider />
                         <Dropdown.Item>
                         <Button color="" className=''  onClick={handleLogout}>
-                        LogOut
+                        <span className='mr-2 text-xl'><IoIosLogOut></IoIosLogOut></span> LogOut
                     </Button>
                         </Dropdown.Item>
                     </Dropdown> 

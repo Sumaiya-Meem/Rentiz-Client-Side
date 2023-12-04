@@ -39,10 +39,10 @@ import AddProperty from '../Dashboard/AddProperty/AddProperty';
     },
     {
       path: "dashboard",
-      element: <Dashboard></Dashboard>,
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
         {
-          path: "profile",
+          path: "",
           element: <Profile></Profile>,
         },
         {

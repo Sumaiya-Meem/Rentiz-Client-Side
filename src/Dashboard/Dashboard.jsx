@@ -6,10 +6,10 @@ const Dashboard = () => {
             <div className=" bg-[#3f86ae] h-screen w-64 text-white">
                 <ul >
                 <li className="p-3 border-b-2 border-slate-400 rounded-lg">
-                        <NavLink to="/">Home</NavLink>
+                        <NavLink to="/">Home Page</NavLink>
                     </li>
                     <li className="p-3 border-b-2 border-slate-400 rounded-lg">
-                        <NavLink to="/dashboard/profile">My Profile</NavLink>
+                        <NavLink to="/dashboard">My Profile</NavLink>
                     </li>
                     <li className="p-3 border-b-2 border-slate-400 rounded-lg">
                         <NavLink to="/dashboard/addProperty">Add Property</NavLink>
@@ -27,6 +27,7 @@ const Dashboard = () => {
             </div>
             {/* content */}
             <div className="flex-1">
+                {/* <h1 className=" text-4xl my-2 p-2">Dashboard</h1> */}
                  <Outlet></Outlet>
             </div>
         </div>
