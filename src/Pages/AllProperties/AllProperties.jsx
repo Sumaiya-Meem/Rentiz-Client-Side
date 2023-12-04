@@ -14,9 +14,24 @@ const AllProperties = () => {
     const [allProperty] = useProperty();
     
     const [search, setSearch] = useState('');
+    const [sortProperty, setSortProperty] = useState('asc');
 
-    const PropertyWithoutRejected = allProperty.filter((data) =>  data.status !== 'rejected' && data.name.toLowerCase().includes(search.toLowerCase())
+    const PropertyWithoutRejected = allProperty.filter((data) =>  
+    data.status !== 'rejected' && data.name.toLowerCase().includes(search.toLowerCase()
     )
+    )
+
+    const sortedProperty = [...PropertyWithoutRejected].sort((a, b) => {
+        const priceA = a.price;
+        const priceB = b.price;
+
+        if (sortProperty === 'asc') {
+            return priceA - priceB;
+        } else {
+            return priceB - priceA;
+        }
+    });
+
     return (
         <div>
             <div>
@@ -59,9 +74,19 @@ const AllProperties = () => {
                     </div>
                 </div>
             </div>
+            <label>
+                Sort by Price:
+                <select
+                    value={sortProperty}
+                    onChange={(e) => setSortProperty(e.target.value)}
+                >
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+            </label>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-6">
                 {
-                    PropertyWithoutRejected.map((data) =>
+                    sortedProperty.map((data) =>
                         <Card
                             className="max-w-sm"
                         >
