@@ -74,7 +74,8 @@ const AllProperties = () => {
                     </div>
                 </div>
             </div>
-            <label>
+            <div className="mt-4">
+            <label className="font-semibold">
                 Sort by Price:
                 <select
                     value={sortProperty}
@@ -84,6 +85,7 @@ const AllProperties = () => {
                     <option value="desc">Descending</option>
                 </select>
             </label>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-6">
                 {
                     sortedProperty.map((data) =>
