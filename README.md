@@ -3,7 +3,11 @@
 Website Live link [Click here](https://rentiz-e6035.web.app/).
 
 ## Features
-- **User , Admin and Agent Dashboards:**
+- **Comprehensive Home Page:**
+  - Advertisement section with property details and a "Details" button.
+  - Search functionality in All Properties Page.
+  - Latest User Review section featuring reviewer details and property title.
+- **User and Agent Dashboards:**
   - **User Dashboard:**
     - My Profile, Wishlist, Property Bought, and My Reviews sections.
     - Profile page displaying user information.
@@ -11,7 +15,7 @@ Website Live link [Click here](https://rentiz-e6035.web.app/).
     - Property Bought displaying bought properties and payment status.
     - My Reviews showing reviews given by the user, with a delete option.
 
-  - **Agent Dashboard (For Users with Agent Role):**
+  - **Agent Dashboard :**
     - Agent Profile displaying agent information.
     - Add Property page for agents to add new properties.
     - My Added Properties displaying properties added by the agent.
