@@ -1,13 +1,37 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 import { IoIosLogOut } from "react-icons/io";
 import { FaRegEdit } from "react-icons/fa";
 import { Button, Card } from 'flowbite-react';
 import { Link, useNavigate } from 'react-router-dom';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 const Profile = () => {
 
     const {user,logOut} = useContext(AuthContext);
     const navigate=useNavigate();
+    const axiosSecure=useAxiosSecure()
+
+    const[userRole,setUserRole]=useState(false)
+    const[role,setRole]=useState('')
+
+    useEffect(() => {
+      const LoadUserData = async () => {
+        try {
+          const response = await axiosSecure.get(`users/${user.email}`);
+          const userData = response.data;
+         if(userData.role == "admin" || userData.role=="agent"){
+          setUserRole(true)
+          setRole(userData.role)
+         }
+        } catch (error) {
+          console.error(error);
+        }
+      };
+  
+      if (user && user.email) {
+          LoadUserData();
+      }
+    }, [user]);
     const handleLogout =()=>{
         console.log("logout")
         logOut()
@@ -43,6 +67,19 @@ const Profile = () => {
        {user?.email}
       </p>
         </div>
+       {
+        userRole ?
+        <>
+         <div  className='flex  gap-2 items-center mt-2 justify-center'>
+        <h2 className='font-bold tracking-tight text-gray-900 dark:text-white'>Role : </h2>
+           <p className="font-semibold text-gray-700 dark:text-gray-400 my-3 capitalize">
+            {role}
+        </p>
+          
+        </div>
+        </>: <></>
+        
+       }
      
      
       <Button gradientDuoTone="redToYellow" className='mx-auto text-xl' pill onClick={handleLogout}>
