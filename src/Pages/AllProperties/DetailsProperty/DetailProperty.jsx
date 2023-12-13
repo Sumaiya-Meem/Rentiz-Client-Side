@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { TbJewishStarFilled } from "react-icons/tb";
-import { Button, Card, Label, Modal, TextInput } from 'flowbite-react'; 
+import { Button, Card, Label, Modal, TextInput, Textarea } from 'flowbite-react';
 import { MdOutlineRateReview } from "react-icons/md";
+import { MdOutlineSend } from "react-icons/md";
 
 const DetailProperty = () => {
     const property = useLoaderData();
@@ -12,7 +13,7 @@ const DetailProperty = () => {
     const [reviewText, setReviewText] = useState('');
     function onCloseModal() {
         setOpenModal(false);
-      }
+    }
 
     const handleReviewSubmit = () => {
         const reviewData = {
@@ -22,8 +23,6 @@ const DetailProperty = () => {
             timestamp: new Date().toISOString(),
         };
 
-      
-        closeModal();
         console.log(reviewData);
     };
 
@@ -54,23 +53,20 @@ const DetailProperty = () => {
             </Card>
 
             <Modal show={openModal} size="md" onClose={onCloseModal} popup>
-        <Modal.Header />
-        <Modal.Body>
-          <div className="space-y-6">
-            <h3 className="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h3>
-            <div>
-              <div className="mb-2 block">
-                <Label htmlFor="email" value="Your email" />
-              </div>
-            </div>
-            <div>
-              <div className="mb-2 block">
-                <Label htmlFor="password" value="Your password" />
-              </div>
-            </div>
-          </div>
-        </Modal.Body>
-      </Modal>
+                <Modal.Header />
+                <Modal.Body>
+                    <div className="space-y-2">
+                        <h3 className="text-xl text-center font-semibold text-gray-900 ">Review</h3>
+                        <Textarea id="comment" placeholder="Write your review..." required rows={4} />
+                    </div>
+                    <div className='mt-3'>
+                    <Button onClick={handleReviewSubmit}>
+                    <MdOutlineSend  className="mr-2 h-5 w-5" />
+                                Send
+                            </Button>
+                    </div>
+                </Modal.Body>
+            </Modal>
         </div>
     );
 };
