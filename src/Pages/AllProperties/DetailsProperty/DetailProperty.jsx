@@ -4,10 +4,14 @@ import { TbJewishStarFilled } from "react-icons/tb";
 import { Button, Card, Label, Modal, TextInput, Textarea } from 'flowbite-react';
 import { MdOutlineRateReview } from "react-icons/md";
 import { MdOutlineSend } from "react-icons/md";
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const DetailProperty = () => {
     const property = useLoaderData();
     const { name, image, price, agentName, location } = property;
+
+    const axiosSecure=useAxiosSecure()
 
     const [openModal, setOpenModal] = useState(false);
     const [reviewText, setReviewText] = useState('');
@@ -25,6 +29,19 @@ const DetailProperty = () => {
         };
 
         console.log(reviewData);
+       axiosSecure.post('/reviews',reviewData )
+        .then(res=>{
+            if(res.data.insertedId){
+                Swal.fire({
+                  position: "top-center",
+                  icon: "success",
+                  title: "Add review",
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+            }
+        })
+        setOpenModal(false);
     };
 
     return (
