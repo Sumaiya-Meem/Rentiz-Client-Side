@@ -1,6 +1,6 @@
 # Website Name: Rentiz
 
-Website Live link [Click here](https://rentiz-e6035.web.app/).
+Website Live link [Click here](https://rentiz-e6035.web.app).
 
 ## Features
 - **Comprehensive Home Page:**

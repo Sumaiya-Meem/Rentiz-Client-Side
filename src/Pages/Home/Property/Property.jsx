@@ -8,6 +8,7 @@ import { Pagination } from 'swiper/modules';
 import { FaLocationDot } from "react-icons/fa6";
 import useProperty from '../../../hooks/useProperty';
 import { Button } from 'flowbite-react';
+import { Link } from 'react-router-dom';
 
 const Property = () => {
 
@@ -46,7 +47,7 @@ const Property = () => {
                         </div>
                         <div className="flex gap-10 items-center">
                                 <h3 className='capitalize font-semibold'>Status: {data.status}</h3>
-                                <Button>Details</Button>
+                             
                             </div>
                     </SwiperSlide>
           

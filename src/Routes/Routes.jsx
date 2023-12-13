@@ -16,6 +16,7 @@ import AllUser from '../Dashboard/AllUser/AllUser';
 import AddedProperty from '../Dashboard/AddedProperty/AddedProperty';
 import AdminAllProperties from '../Dashboard/AdminAllProperties/AdminAllProperties';
 import DetailProperty from '../Pages/AllProperties/DetailsProperty/DetailProperty';
+import MyReview from '../Dashboard/MyReview/MyReview';
   
   const router = createBrowserRouter([
     {
@@ -57,6 +58,10 @@ import DetailProperty from '../Pages/AllProperties/DetailsProperty/DetailPropert
         {
           path: "addProperty",
           element: <AddProperty></AddProperty>,
+        },
+        {
+          path: "myReview",
+          element:<MyReview></MyReview>,
         },
         // admin route
         {

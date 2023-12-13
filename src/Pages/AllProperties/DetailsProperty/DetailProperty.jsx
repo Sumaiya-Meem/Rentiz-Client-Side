@@ -9,7 +9,7 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const DetailProperty = () => {
     const property = useLoaderData();
-    const { name, image, price, agentName, location } = property;
+    const { name, image, price, agentName, location, agentImage,status} = property;
 
     const axiosSecure=useAxiosSecure()
 
@@ -43,6 +43,35 @@ const DetailProperty = () => {
         })
         setOpenModal(false);
     };
+    const handleWishSubmit = () => {
+
+        const wishData = {
+            propertyName: name,
+            propertyImage: image,
+            price:price,
+            location:location,
+            agentName: agentName,
+            agentImage:  agentImage,
+            status:status
+        };
+
+        console.log(wishData);
+       axiosSecure.post('/wish',wishData)
+        .then(res=>{
+            if(res.data.insertedId){
+                Swal.fire({
+                  position: "top-center",
+                  icon: "success",
+                  title: "Add the property in wishlist",
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+            }
+        })
+        setOpenModal(false);
+    };
+
+
 
     return (
         <div className=''>
@@ -57,7 +86,7 @@ const DetailProperty = () => {
                         <h5>Price: ${price}</h5>
                         <h6>Owner: {agentName}</h6>
                         <div className="flex flex-wrap gap-2 mt-5">
-                            <Button>
+                            <Button onClick={handleWishSubmit}>
                                 <TbJewishStarFilled className="mr-2 h-5 w-5" />
                                 Wishlist
                             </Button>
