@@ -16,11 +16,12 @@ const DetailProperty = () => {
     }
 
     const handleReviewSubmit = () => {
+        const currentDate = new Date();
         const reviewData = {
             propertyName: name,
             reviewDescription: reviewText,
             agentName: agentName,
-            timestamp: new Date().toISOString(),
+            reviewTime: currentDate.toLocaleString()
         };
 
         console.log(reviewData);
@@ -57,7 +58,10 @@ const DetailProperty = () => {
                 <Modal.Body>
                     <div className="space-y-2">
                         <h3 className="text-xl text-center font-semibold text-gray-900 ">Review</h3>
-                        <Textarea id="comment" placeholder="Write your review..." required rows={4} />
+                        <Textarea 
+                         value={reviewText}
+                         onChange={(e) => setReviewText(e.target.value)}
+                        placeholder="Write your review..." required rows={4} />
                     </div>
                     <div className='mt-3'>
                     <Button onClick={handleReviewSubmit}>
