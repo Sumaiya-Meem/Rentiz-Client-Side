@@ -6,7 +6,7 @@ import { IoCall,IoChatboxEllipses,IoVideocam } from "react-icons/io5";
 import { FaMessage } from "react-icons/fa6";
 const Contact = () => {
     return (
-        <div className='my-6'>
+        <div className='my-6' id="contact">
             <h1 className='text-left text-xl text-[#f38654] font-bold '>Contact Us</h1>
             <h1 className='text-left  text-3xl text-[#2292a7]'>Esay to Contact Us</h1>
             <div className='flex flex-col lg:flex-row gap-3'>

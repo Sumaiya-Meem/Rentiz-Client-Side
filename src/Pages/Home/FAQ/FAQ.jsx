@@ -3,7 +3,7 @@ import { Accordion } from 'flowbite-react';
 
 const FAQ = () => {
   return (
-    <div className="my-10 ">
+    <div className="my-10 " id="review">
       <h1 className="text-4xl text-center text-[#f38654] ">Frequently Asked Questions</h1>
       <div className="flex gap-3 mt-6">
         <div className="hidden lg:block">

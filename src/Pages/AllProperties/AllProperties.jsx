@@ -7,6 +7,7 @@ import { FaSearch } from 'react-icons/fa';
 import { Avatar, Button, TextInput } from 'flowbite-react';
 import { Card } from 'flowbite-react';
 import { FaLocationDot } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const AllProperties = () => {
 
@@ -116,7 +117,9 @@ const AllProperties = () => {
                             </div>
                             <div className="flex justify-around items-center">
                                 <h3 className='capitalize font-semibold'>Status: {data.status}</h3>
+                                <Link to={`/detailsPoperty/${data._id}`}>
                                 <Button>Details</Button>
+                                </Link>
                             </div>
 
                         </Card>

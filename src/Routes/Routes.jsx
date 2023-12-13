@@ -15,6 +15,7 @@ import AddProperty from '../Dashboard/AddProperty/AddProperty';
 import AllUser from '../Dashboard/AllUser/AllUser';
 import AddedProperty from '../Dashboard/AddedProperty/AddedProperty';
 import AdminAllProperties from '../Dashboard/AdminAllProperties/AdminAllProperties';
+import DetailProperty from '../Pages/AllProperties/DetailsProperty/DetailProperty';
   
   const router = createBrowserRouter([
     {
@@ -29,6 +30,11 @@ import AdminAllProperties from '../Dashboard/AdminAllProperties/AdminAllProperti
         {
           path: "/allProperties",
           element: <PrivateRoute><AllProperties></AllProperties></PrivateRoute>,
+        },
+        {
+          path: "/detailsPoperty/:id",
+          element: <PrivateRoute><DetailProperty></DetailProperty></PrivateRoute>,
+          loader: ({params})=>fetch(`http://localhost:5000/properties/${params.id}`)
         },
         {
           path: "/register",

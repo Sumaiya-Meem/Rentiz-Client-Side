@@ -72,22 +72,22 @@ const Dashboard = () => {
                                         <NavLink to="/dashboard/addedProperty">My Added Property</NavLink>
                                     </li>
                                    
-                                    <li className="p-3 border-b-2 border-slate-400 rounded-lg">
+                                    {/* <li className="p-3 border-b-2 border-slate-400 rounded-lg">
                                         <NavLink to="/dashboard/requestedProperty">Requested Property</NavLink>
                                     </li>
                                     <li className="p-3 border-b-2 border-slate-400 rounded-lg">
                                         <NavLink to="/dashboard/soldProperty">Sold Property</NavLink>
-                                    </li>
+                                    </li> */}
 
                                 </>
                                 :
                                 <>
-                                    <li className="p-3 border-b-2 border-slate-400 rounded-lg">
+                                    {/* <li className="p-3 border-b-2 border-slate-400 rounded-lg">
                                         <NavLink to="/dashboard/wishlist">My WishList</NavLink>
                                     </li>
                                     <li className="p-3 border-b-2 border-slate-400 rounded-lg">
                                         <NavLink to="/dashboard/bougth">Property Bougth</NavLink>
-                                    </li>
+                                    </li> */}
                                     <li className="p-3 border-b-2 border-slate-400 rounded-lg">
                                         <NavLink to="/dashboard/myReview">My Reviews</NavLink>
                                     </li>
